@@ -1,6 +1,30 @@
 package ru.netology
 
 
-interface NoteService {
-     val type: String
+object  NoteService{
+    //private var comments = List<Comment>()
+    //private var notes = List<Note>()
+
+    private fun <T> List(String:T, Int:T) {}
+
+
+    private var id = 0
+
+
+
+fun create(comment: Comment) {
+
+
+        }
+    fun read(comment: Comment){}
+
+
+
+
+
+
+
+
 }
+
+
