@@ -13,7 +13,7 @@ object NoteService {
     fun createComment(comment: Comment) {
         comments += comment
         if (notes.any { noteId >= 0 }) {
-            println("$commentId.add")
+            println("${comments.add(commentId)}")
         } else (throw noteIdNotFoundException("0"))
     }
 
@@ -83,6 +83,11 @@ object NoteService {
     )
 
 
+
+private fun <T> MutableList<T>.add(element: Int) {}
 }
+
+
+
 
 

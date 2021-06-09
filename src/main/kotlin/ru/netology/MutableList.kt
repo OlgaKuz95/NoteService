@@ -2,7 +2,7 @@ package ru.netology.ru.netology
 
 import ru.netology.Note
 
-public interface MutableList<T> : List<T>, MutableCollection<T> {
+interface MutableList<T> : List<T>, MutableCollection<T> {
     override fun add(element: T): Boolean
     override fun remove(element: T): Boolean
     override fun addAll(elements: Collection<T>): Boolean
