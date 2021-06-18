@@ -4,35 +4,35 @@ import ru.netology.ru.netology.noteAccessToTheCommentException
 import ru.netology.ru.netology.noteIdNotFoundException
 
 
-object NoteService {
-    val notes = mutableListOf<Note>()
-    val comments = mutableListOf<Comment>()
+class NoteService<T> {
+    val notes = mutableListOf<T>()
+    var comments = mutableListOf<T>()
     var noteId = 0
     var commentId = 0
 
-    fun createComment(comment: Comment) {
+    fun <T> createComment(comment: T) {
         comments += comment
         if (notes.any { noteId >= 0 }) {
-            println("${comments.add(commentId)}")
+            println("${сomments.add(commentId)}")
         } else (throw noteIdNotFoundException("0"))
     }
 
-    fun add(note: Note): Note {
+    fun <T> add(note: T): T {
         notes += note.copy(noteId = noteId++)
         return notes.last()
     }
 
     //fun read(comment: Comment) {}
 
-    fun delete(note: Note) {
-        notes += note
+    fun <T> delete(note: T): T {
+        //notes += note
         ("notes.any { noteId >=0 } is  ${notes.any { noteId >= 0 }}")
         println("1")
         ("notes.any { noteId>=0}  !is  ${notes.any { noteId >= 0 }}")
         (throw noteIdNotFoundException("0"))
     }
 
-    fun deleteComment(comment: Comment) {
+    fun <T> deleteComment(comment: T) {
         comments += comment
         ("commentId.any { commentId >=0 } is  ${comments.any { commentId >= 0 }}")
         println("01")
@@ -40,15 +40,15 @@ object NoteService {
         (throw noteAccessToTheCommentException("02"))
     }
 
-    fun edit(note: Note): Boolean {
-        notes += note
+    fun <T> edit(note: T): Boolean {
+        //notes += note
         ("notes.any { noteId >=0 } is  ${notes.any { noteId >= 0 }}")
         println(note.copy())
         ("notes.any { noteId>=0}  !is  ${notes.any { noteId >= 0 }}")
         return false
     }
 
-    fun editComment(comment: Comment): Boolean {
+    fun <T> editComment(comment: T): Boolean {
         comments += comment
         println("commentId.any { commentId >=0 } is  ${comments.any { commentId >= 0 }}")
         true
@@ -57,7 +57,7 @@ object NoteService {
     }
 
 
-    val note = Note(
+    val note = mutableListOf(Note(
         1,
         "text",
         "te",
@@ -69,8 +69,9 @@ object NoteService {
         3,
         1,
         1,
-    )
-    val comment = Comment(
+    ))
+
+    val comment = mutableListOf (Comment(
         1,
         1,
         "t",
@@ -83,8 +84,6 @@ object NoteService {
     )
 
 
-
-private fun <T> MutableList<T>.add(element: Int) {}
 }
 
 

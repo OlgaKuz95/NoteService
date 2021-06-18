@@ -9,7 +9,7 @@ import ru.netology.ru.netology.noteAccessToTheCommentException
 import ru.netology.ru.netology.noteIdNotFoundException
 
 class NoteServiceTest {
-    val service = NoteService
+    val service = NoteService()
 
     @Test(expected = noteIdNotFoundException::class)
     fun createComment() {
