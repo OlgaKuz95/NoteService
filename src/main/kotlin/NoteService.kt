@@ -11,7 +11,7 @@ class NoteService<T> {
     var commentId = 0
 
     fun <T> createComment(comment: T) {
-        comments += comment
+       // comments += comment
         if (notes.any { noteId >= 0 }) {
             println("${сomments.add(commentId)}")
         } else (throw noteIdNotFoundException("0"))
@@ -33,7 +33,7 @@ class NoteService<T> {
     }
 
     fun <T> deleteComment(comment: T) {
-        comments += comment
+        //comments += comment
         ("commentId.any { commentId >=0 } is  ${comments.any { commentId >= 0 }}")
         println("01")
         ("commentId.any { commentId>=0}  !is  ${notes.any { commentId >= 0 }}")
@@ -49,7 +49,7 @@ class NoteService<T> {
     }
 
     fun <T> editComment(comment: T): Boolean {
-        comments += comment
+        //comments += comment
         println("commentId.any { commentId >=0 } is  ${comments.any { commentId >= 0 }}")
         true
         println("commentId.any { commentId>=0}  !is  ${notes.any { commentId >= 0 }}")
