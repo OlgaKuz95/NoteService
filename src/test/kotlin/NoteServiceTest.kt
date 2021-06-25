@@ -1,11 +1,6 @@
 package ru.netology
 
-import org.junit.Assert.assertTrue
 import org.junit.Test
-import ru.netology.Comment
-import ru.netology.Note
-import ru.netology.NoteService
-import ru.netology.ru.netology.noteAccessToTheCommentException
 import ru.netology.ru.netology.noteIdNotFoundException
 
 class NoteServiceTest {

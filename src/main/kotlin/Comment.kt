@@ -1,15 +1,15 @@
 package ru.netology
 
-data class Comment<T>(
-    val commentId: T,
-    val ownerId: T,
-    val message: T,
-    val noteId: T,
-    val guid: T,
-    val replyTo: T,
-    val sort: T,
-    val offset: T,
-    val count: T,
+data class Comment(
+    val commentId: Int,
+    val ownerId: Int,
+    val message: String,
+    val noteId: Int,
+    val guid: Int,
+    val replyTo: Int,
+    val sort: Int,
+    val offset: Int,
+    val count: Int,
 
     )
 
