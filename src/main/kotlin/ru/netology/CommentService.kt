@@ -5,6 +5,8 @@ import ru.netology.Comment
 
 abstract class CommentService : CrudService<Comment> {
     private val comments = mutableListOf<Comment>()
+    private val commentsDeletes = mutableListOf<Comment>()
+
     private var commentId = 0
 
     /*override fun  editComment(item: Comment): Boolean {
@@ -22,21 +24,27 @@ abstract class CommentService : CrudService<Comment> {
                 true
             } ?: false
 
-    override fun deleteComment(item: Comment) {
-        comments.remove(item)    }
 
-    override fun createComment(item: Comment):Comment {
+    override fun deleteComment(item: Comment): Boolean {
+        commentsDeletes.add(item)
+        return comments.remove(item)
+    }
+
+    override fun restoreComment(item: Comment): Boolean {
+         commentsDeletes.last()
+        return comments.add(item)
+    }
+
+
+    override fun createComment(item: Comment): Comment {
         comments += item.copy(commentId = commentId++)
         return comments.last()
     }
 
     override fun getComment(): List<Comment> = comments
 
-override fun restoreComment(item:Comment){
-// TODO: 26.06.2021
-}
 
-    private var comment = mutableListOf (
+    private val comment = mutableListOf(
         Comment(
             1,
             1,
@@ -50,4 +58,14 @@ override fun restoreComment(item:Comment){
         )
     )
 
+
 }
+
+
+
+
+
+
+
+
+
