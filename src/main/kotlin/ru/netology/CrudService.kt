@@ -1,7 +1,6 @@
 package ru.netology.ru.netology
 
 import ru.netology.Comment
-import ru.netology.CommentsDelete
 
 interface CrudService<T> {
     fun create(item: T): T
