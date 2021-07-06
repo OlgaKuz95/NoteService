@@ -1,6 +1,8 @@
-package ru.netology.ru.netology
+package ru.netology
 
 import ru.netology.Comment
+import ru.netology.ru.netology.CrudService
+import ru.netology.Note
 
 
 abstract class CommentService : CrudService<Comment> {
@@ -9,14 +11,8 @@ abstract class CommentService : CrudService<Comment> {
 
     private var commentId = 0
 
-    /*override fun  editComment(item: Comment): Boolean {
-        comments += comment
-        println("commentId.any { commentId >=0 } is  ${comments.any { commentId >= 0 }}")
-        true
-        println("commentId.any { commentId>=0}  !is  ${comments.any { commentId >= 0 }}")
-        return false}*/
 
-    override fun editComment(item: Comment): Boolean =
+    override fun edit(item: Comment): Boolean =
         comments.indexOfFirst { it.commentId == item.commentId }
             .takeIf { it >= 0 }
             ?.let {
@@ -25,41 +21,41 @@ abstract class CommentService : CrudService<Comment> {
             } ?: false
 
 
-    override fun deleteComment(item: Comment): Boolean {
+    override fun delete(item: Comment) {
         commentsDeletes.add(item)
-        return comments.remove(item)
+        comments.remove(item)
     }
 
-    override fun restoreComment(item: Comment): Boolean {
-         commentsDeletes.last()
-        return comments.add(item)
-    }
+    fun restoreComment(comment: Comment): Boolean {
+        commentsDeletes.remove(comment)
+        return comments.add(comment)}
 
 
-    override fun createComment(item: Comment): Comment {
-        comments += item.copy(commentId = commentId++)
-        return comments.last()
-    }
-
-    override fun getComment(): List<Comment> = comments
+    override fun create(item: Comment): Comment {
+            comments += item.copy(commentId = commentId++)
+            return comments.last()
+        }
 
 
-    private val comment = mutableListOf(
-        Comment(
-            1,
-            1,
-            "t",
-            1,
-            1,
-            0,
-            1,
-            2,
-            1,
+    override fun getAll(): List<Comment> = comments
+
+
+        val comment = mutableListOf(
+            Comment(
+                1,
+                1,
+                "t",
+                1,
+                1,
+                0,
+                1,
+                2,
+                1,
+            )
         )
-    )
 
 
-}
+    }
 
 
 
